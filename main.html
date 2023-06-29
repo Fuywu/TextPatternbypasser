@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Filter Bypass Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+      /* Center the UI on the webpage */
+      html,
+      body {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        font-family: Inter, Helvetica, "Apple Color Emoji";
+        padding: 20px;
+        color: rgb(223, 250, 250);
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      .result {
+        margin-top: 20px;
+      }
+
+      /* Position particles container */
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #28282d;
+        z-index: -1;
+      }
+      /* style.css */
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .textInputWrapper {
+        position: relative;
+        width: 180px;
+        margin: 12px 5px;
+        --accent-color: #ffffff;
+        top: 10px;
+        left: 85px;
+      }
+
+      .textInputWrapper:before,
+      .textInputWrapper:after {
+        content: "";
+        left: 0;
+        right: 0;
+        position: absolute;
+        pointer-events: none;
+        bottom: -1px;
+        z-index: 4;
+        width: 100%;
+      }
+
+      .textInputWrapper:before {
+        transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+      }
+
+      .textInputWrapper:focus-within:before {
+        border-bottom: 1px solid var(--accent-color);
+        transform: scaleX(1);
+      }
+
+      .textInputWrapper:focus-within:after {
+        border-bottom: 2px solid var(--accent-color);
+        transform: scaleX(1);
+      }
+
+      .textInputWrapper:after {
+        content: "";
+        transform: scaleX(0);
+        transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        will-change: transform;
+        border-bottom: 2px solid var(--accent-color);
+        border-bottom-color: var(--accent-color);
+      }
+
+      .textInput::placeholder {
+        transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        opacity: 1;
+        user-select: none;
+        color: rgba(255, 255, 255, 0.582);
+      }
+
+      .textInputWrapper .textInput {
+        border-radius: 5px 5px 0px 0px;
+        box-shadow: 0px 2px 5px #2323234d;
+        max-height: 5px;
+        background-color: #252525;
+        transition: background-color 200ms cubic-bezier(0.25, 0.8, 0.25, 1);
+        color: #e8e8e8;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px;
+        width: 87%;
+        border-left: none;
+        border-bottom: none;
+        border-right: none;
+      }
+
+      .textInputWrapper .textInput:focus,
+      .textInputWrapper .textInput:active {
+        outline: none;
+        background-color: #353535;
+      }
+
+      .textInputWrapper:focus-within .textInput::placeholder {
+        opacity: 0;
+      }
+      /*𝐈 𝐰𝐚𝐬 𝐡𝐞𝐫𝐞 ~𝓁𝓊𝒸i */
+      button {
+        --hover-shadows: 8px 8px 15px #121212, -8px -8px 15px #303030;
+        --accent: rgb(223, 221, 223);
+        position: relative;
+        top: 10px;
+        font-weight: bold;
+        border: none;
+        border-radius: 1.1em;
+        background-color: #252525;
+        color: white;
+        padding: 0.75em 3em;
+        transition: box-shadow ease-in-out 0.3s,
+          background-color ease-in-out 0.1s, letter-spacing ease-in-out 0.1s,
+          transform ease-in-out 0.1s;
+      }
+
+      button:hover {
+        box-shadow: var(--hover-shadows);
+      }
+
+      button:active {
+        box-shadow: var(--hover-shadows), var(--accent) 0px 0px 15px 5px;
+        background-color: var(--accent);
+        transform: scale(0.95);
+      }
+
+      #result {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+
+    <div class="container">
+      <h1>Filter Bypass Generator</h1>
+
+      <div class="textInputWrapper">
+        <input
+          placeholder="Type Here"
+          type="text"
+          id="input-word"
+          class="textInput"
+        />
+      </div>
+
+      <button id="generate-button">Generate</button>
+
+      <div id="result" class="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      /* particles.js configuration */
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 50,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: "#b5e1ac",
+          },
+          shape: {
+            type: "image",
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+            polygon: {
+              nb_sides: 5,
+            },
+            image: {
+              src: "https://cdn.discordapp.com/attachments/1040665979715334187/1123744508572618772/image.png",
+              width: 100,
+              height: 100,
+            },
+          },
+          opacity: {
+            value: 0.19728691040806817,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 3,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 33.56643356643357,
+              size_min: 0.1,
+              sync: true,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#e3e3e3",
+            opacity: 0.7023414010527227,
+            width: 1.4204657549380908,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "grab",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 200,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+      });
+
+      /* script.js*/
+      var zchars = ["\u200B", "\u200C", "\u200D", "\uFEFF", "\u200E", "\u200F"];
+
+      function generateZString(word) {
+        var result = [];
+        var prevChar = "";
+        for (var i = 0; i < word.length; i++) {
+          result.push(word[i]);
+          var randomChars = getRandomChars();
+          for (var j = 0; j < randomChars.length; j++) {
+            if (randomChars[j] !== prevChar) {
+              result.push(randomChars[j]);
+            }
+          }
+          prevChar = randomChars[randomChars.length - 1] || "";
+        }
+        return result.join("");
+      }
+
+      function getRandomChars() {
+        var randomChars = [];
+        var count = getRandomInt(2, 3);
+        for (var i = 0; i < count; i++) {
+          randomChars.push(zchars[getRandomInt(0, zchars.length)]);
+        }
+        return randomChars;
+      }
+
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+
+      function generateZStringAndCopy() {
+        var inputWord = document.getElementById("input-word").value;
+        var result = generateZString(inputWord);
+        document.getElementById("result").textContent = result;
+        navigator.clipboard.writeText(result).then(
+          function () {
+            console.log("Copied to clipboard!");
+          },
+          function (err) {
+            console.error("Failed to copy. ", err);
+          }
+        );
+      }
+
+      document
+        .getElementById("generate-button")
+        .addEventListener("click", generateZStringAndCopy);
+    </script>
+  </body>
+</html>
