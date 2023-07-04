@@ -11,7 +11,7 @@ This is a personal project that serves as a simple website for generating filter
 
 ## To use it yourself:
 
-1. Go to the website. [Website](https://seetay.github.io/TextPatternbypasser/)
+1. Go to the [Website.](https://seetay.github.io/TextPatternbypasser/)
 
 ### **Or**
 
