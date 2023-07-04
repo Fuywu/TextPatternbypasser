@@ -6,10 +6,14 @@ This is a personal project that serves as a simple website for generating filter
 
 - HTML
 - CSS
-- JavaScript
+- JavaScript~~
 - Particles.js (library for creating animated particles)
 
 ## To use it yourself:
+
+1. Go to the website. [Website](https://seetay.github.io/TextPatternbypasser/)
+
+### **Or**
 
 1. Open the `index.html` file in a web browser.
 2. Enter a word in the input field.
@@ -18,7 +22,6 @@ This is a personal project that serves as a simple website for generating filter
 5. It will also copy the generated result to the clipboard by clicking the "Generate" button.
 
 ## Preview
-
 ![Preview](https://cdn.discordapp.com/attachments/1040665979715334187/1124009069187973170/image.png)
 
 ## Credits
